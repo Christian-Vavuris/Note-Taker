@@ -1,8 +1,16 @@
-[
-    {
-    "title":"Test Title",
-    "text":"Test text", 
-    "id": "test_id"
-    }
-]
+{ 
+     "notes":[
+        {
+        "title":"Test Title",
+        "text":"Test text", 
+        "id": "test_id"
+        },
+        {
+        "title":"Thoughts",
+        "text":"People think building a business is about the idea, or the money, or the intelligence of the founders. However it seems that the number one factor in deciding if a startup will be successful is the dedication of the founding team to never give up.",
+        "id": "1"
+        }
+        
+    ]
+}
 
