@@ -4,8 +4,9 @@ const { notes } = require('./Develop/db/db.json');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
+
+app.use(express.static('public'));
 
 
 // Middleware
@@ -14,6 +15,10 @@ const app = express();
 //Serve up front end
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './Develop/public/index.html'))
+});
+
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/notes.html'))
 });
 
 // Get all notes Route
