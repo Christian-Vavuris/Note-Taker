@@ -3,43 +3,34 @@
 const { notes } = require('./Develop/db/db.json');
 const express = require('express');
 const fs = require('fs');
-const PORT = process.env.PORT || 3001;
+const path = require('path');
+
 const app = express();
 
 
-//Middleware
-
-function filterByQuery(query, notesArray) {
-    let filteredResults = notesArray;
-    if (query.title) {
-      filteredResults = filteredResults.filter(title => notes.title === query.title);
-    }
-    if (query.text) {
-      filteredResults = filteredResults.filter(text => notes.text === query.text);
-    }
-    return filteredResults;
-  }
+// Middleware
 
 
-// Routes
+//Serve up front end
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/index.html'))
+});
+
+// Get all notes Route
 
 // app.get('/api/notes', (req, res) => {
 //     res.json(notes);
 // });
 
-app.get('/api/notes', (req, res) => {
-    let results = notes; 
-    if (req.query) {
-        results = filterByQuery(req.query, results);
-      }
-      res.json(results);
+// GET a specific note route
+
+// POST a note to the db.json file
+
+
+
+
+
+app.listen(3001, () => {
+    console.log('API server now on port 3001!')
 });
-
-// app.post('/api/notes', (req, res) => {
-
-// })
-
-app.listen(PORT, () => {
-    console.log(`API server now on port ${PORT}!`);
-  });
 
